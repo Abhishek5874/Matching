@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Memory Matching Game</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 100vh;
+      margin: 0;
+      background: linear-gradient(45deg, #83a4d4, #b6fbff);
+    }
+    h1 {
+      font-size: 2em;
+      color: #fff;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    }
+    .info {
+      color: #fff;
+      margin-bottom: 20px;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+      display: flex;
+      justify-content: space-between;
+      width: 60%;
+    }
+    .info div {
+      font-size: 1.2em;
+    }
+    .game-board {
+      display: grid;
+      grid-template-columns: repeat(4, 100px);
+      grid-gap: 10px;
+    }
+    .card {
+      width: 100px;
+      height: 100px;
+      background-color: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+      cursor: pointer;
+      border: 2px solid #ccc;
+      border-radius: 8px;
+      transition: transform 0.3s;
+    }
+    .card.flipped {
+      background-color: #4caf50;
+      color: white;
+      cursor: default;
+      transform: rotateY(180deg);
+    }
+    .card.matched {
+      background-color: #f44336;
+      color: white;
+      cursor: default;
+    }
+    .new-game-btn {
+      background-color: #ff9800;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1.2em;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 20px;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    }
+    .new-game-btn:hover {
+      background-color: #e68900;
+    }
+    .message {
+      color: #fff;
+      margin-top: 20px;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    }
+  </style>
+</head>
+<body>
+  <h1>Memory Matching Game</h1>
+  <div class="info">
+    <div>Time: <span id="timer">0</span> sec</div>
+    <div>Moves: <span id="moves">0</span></div>
+  </div>
+  <div class="game-board" id="gameBoard"></div>
+  <button class="new-game-btn" onclick="resetGame()">New Game</button>
+  <div class="message" id="message"></div>
+  <script src="game.js"></script>
+</body>
+</html>
